@@ -1,10 +1,18 @@
 {
   "name": "Reddit Auto Translate Off",
-  "description": "This extension allows you todeavtivate the auto redirect translation to reddit from google searchs",
+  "description": "This extension allows you to deactivate the auto redirect translation to reddit from google searchs",
   "version": "1.0",
   "manifest_version": 3,
   "action": {
     "default_popup": "hello.html",
     "default_icon": "icon.png"
-  }
+  },
+  "permissions": ["tabs"],
+  "content_scripts": [
+    {
+      "matches": ["*://*.reddit.com/*"],
+      "js": ["read-url.js"],
+      "run_at": "document_start"
+    }
+  ]
 }
